@@ -1,0 +1,22 @@
+# Tabular dataset configurations for the federated gradient marketplace benchmark.
+# Keys must be lowercase (matched via cfg.experiment.dataset_name.lower()).
+
+texas100:
+  name: Texas100
+  source_type: numpy
+  url: "https://raw.githubusercontent.com/privacytrustlab/datasets/master/dataset_texas.npz"
+  data_key: features
+  labels_key: labels
+  target_column: label
+  num_classes: 100
+  description: "Texas Hospital Discharge dataset (100 procedures)"
+
+purchase100:
+  name: Purchase100
+  source_type: numpy
+  url: "https://raw.githubusercontent.com/privacytrustlab/datasets/master/dataset_purchase.npz"
+  data_key: features
+  labels_key: labels
+  target_column: label
+  num_classes: 100
+  description: "Kaggle Purchase dataset (100 product categories)"

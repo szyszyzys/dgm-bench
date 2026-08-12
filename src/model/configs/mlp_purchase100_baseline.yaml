@@ -1,0 +1,16 @@
+metadata:
+  config_name: "mlp_purchase100_baseline"
+  description: "A strong MLP baseline for the Purchase100 dataset."
+  target_dataset: "Purchase100"
+parameters:
+  model_name: "TabularMLP"
+  hidden_dims: [512, 256, 128]
+  use_dropout: true
+  dropout_rate: 0.4
+  use_batch_norm: true
+  activation: "relu"
+  optimizer_type: "adam"
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  epochs: 100
+  use_layer_norm: true  

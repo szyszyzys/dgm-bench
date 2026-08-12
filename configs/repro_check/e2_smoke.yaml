@@ -1,0 +1,61 @@
+# E2 smoke test: tiny CIFAR-10 / FLTrust / weighted payment, 2 tasks x 3 rounds.
+experiment:
+  dataset_name: CIFAR10
+  dataset_type: image
+  model_structure: cnn
+  image_model_config_name: cifar10_cnn
+  global_rounds: 3
+  n_sellers: 10
+  adv_rate: 0.3
+  device: cpu
+  eval_frequency: 1
+  evaluations: [clean, backdoor]
+  use_early_stopping: true
+  patience: 10
+  use_subset: true
+  subset_size: 600
+  save_path: ./results/e2_smoke
+
+training:
+  local_epochs: 1
+  batch_size: 32
+  learning_rate: 0.001
+  optimizer: Adam
+
+server_attack_config:
+  attack_name: none
+
+adversary_seller_config:
+  name: backdoor_adversary
+  poisoning:
+    type: image_backdoor
+    poison_rate: 0.5
+    image_backdoor_params:
+      simple_data_poison_params:
+        target_label: 1
+
+data:
+  image:
+    strategy: dirichlet
+    dirichlet_alpha: 0.5
+    buyer_ratio: 0.1
+
+debug:
+  save_individual_gradients: false
+
+aggregation:
+  method: fltrust
+  clip_norm: 5.0
+
+valuation:
+  payment_model: weighted
+
+multi_task:
+  num_tasks: 2
+  exit_k: 1
+  carry_model: reset
+
+seed: 42
+n_samples: 1
+
+data_root: "C:/Users/zeyu song/Desktop/codes/poison_data_valuation/data"

@@ -1,0 +1,48 @@
+{
+  "cifar100_cnn": {
+    "_best_acc": 0.5496,
+    "_data_setting": "noniid",
+    "training.learning_rate": 0.001,
+    "training.local_epochs": 2,
+    "training.momentum": 0.0,
+    "training.optimizer": "Adam",
+    "training.weight_decay": 0.0
+  },
+  "femnist_cnn": {
+    "_best_acc": 0.0,
+    "_data_setting": "noniid",
+    "_note": "Manually added — no step-1 tuning run yet. Uses defaults from TrainingConfig observed in runner logs.",
+    "training.learning_rate": 0.01,
+    "training.local_epochs": 2,
+    "training.momentum": 0.9,
+    "training.optimizer": "SGD",
+    "training.weight_decay": 0.0001
+  },
+  "mlp_purchase100_baseline": {
+    "_best_acc": 0.6345,
+    "_data_setting": "noniid",
+    "training.learning_rate": 0.0005,
+    "training.local_epochs": 5,
+    "training.momentum": 0.0,
+    "training.optimizer": "Adam",
+    "training.weight_decay": 0.0
+  },
+  "mlp_texas100_baseline": {
+    "_best_acc": 0.625,
+    "_data_setting": "noniid",
+    "training.learning_rate": 0.0001,
+    "training.local_epochs": 5,
+    "training.momentum": 0.0,
+    "training.optimizer": "Adam",
+    "training.weight_decay": 0.0
+  },
+  "textcnn_trec_baseline": {
+    "_best_acc": 0.7875,
+    "_data_setting": "noniid",
+    "training.learning_rate": 0.05,
+    "training.local_epochs": 5,
+    "training.momentum": 0.9,
+    "training.optimizer": "SGD",
+    "training.weight_decay": 0.0005
+  }
+}

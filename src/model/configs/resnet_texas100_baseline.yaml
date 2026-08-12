@@ -1,0 +1,16 @@
+metadata:
+  config_name: "resnet_texas100_baseline"
+  description: "A ResNet-style model for the Texas100 dataset."
+  target_dataset: "Texas100"
+parameters:
+  model_name: "TabularResNet"
+  num_res_blocks: 3
+  res_hidden_dim: 256
+  use_dropout: true
+  dropout_rate: 0.5
+  use_batch_norm: true
+  activation: "relu"
+  optimizer_type: "adam"
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  epochs: 100

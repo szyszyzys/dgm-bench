@@ -1,0 +1,32 @@
+*/**.swp
+*.ipynb_checkpoints
+.mypy_cache/
+__pycache__/
+*.jpg
+*.png
+*.pdf
+*.csv
+*.ckpt
+./data
+
+# IDE / tooling
+.claude/
+.idea/
+.vscode/
+.ipynb_checkpoints/
+
+# Experiment artifacts (regenerated on each run)
+results/
+configs_generated_benchmark/
+resbackup/
+# Ignore local datasets and caches
+data/
+*.pkl
+*.ubyte
+# internal revision analysis + server-specific helper scripts (not for public release)
+docs/revision_notes/
+tools/dev-helpers/run_e2_gapfill.sh
+tools/dev-helpers/run_numworkers_diagnostic.sh
+tools/dev-helpers/run_rootsize_extra_seeds.sh
+tools/dev-helpers/verify_revision_claims.py
+tools/dev-helpers/remote_results_manifest.sh

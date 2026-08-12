@@ -1,0 +1,257 @@
+{
+  "fedavg_cifar100_cnn_backdoor": {
+    "aggregation.method": "fedavg"
+  },
+  "fedavg_cifar100_cnn_labelflip": {
+    "aggregation.method": "fedavg"
+  },
+  "fedavg_femnist_cnn_backdoor": {
+    "_note": "Copied from cifar100_cnn — no step-3 tuning for FEMNIST yet.",
+    "aggregation.method": "fedavg"
+  },
+  "fedavg_mlp_purchase100_baseline_backdoor": {
+    "aggregation.method": "fedavg"
+  },
+  "fedavg_mlp_purchase100_baseline_labelflip": {
+    "aggregation.method": "fedavg"
+  },
+  "fedavg_mlp_texas100_baseline_backdoor": {
+    "aggregation.method": "fedavg"
+  },
+  "fedavg_mlp_texas100_baseline_labelflip": {
+    "aggregation.method": "fedavg"
+  },
+  "fedavg_textcnn_trec_baseline_backdoor": {
+    "aggregation.method": "fedavg"
+  },
+  "fedavg_textcnn_trec_baseline_labelflip": {
+    "aggregation.method": "fedavg"
+  },
+  "fltrust_cifar100_cnn_backdoor": {
+    "_best_acc": 0.4829,
+    "_best_asr": 0.7806,
+    "_n_seeds": 2,
+    "_score": -0.2976,
+    "aggregation.clip_norm": 5.0,
+    "aggregation.method": "fltrust"
+  },
+  "fltrust_femnist_cnn_backdoor": {
+    "_note": "Copied from cifar100_cnn — no step-3 tuning for FEMNIST yet.",
+    "_best_acc": 0.0,
+    "_best_asr": 0.0,
+    "aggregation.clip_norm": 5.0,
+    "aggregation.method": "fltrust"
+  },
+  "fltrust_mlp_purchase100_baseline_backdoor": {
+    "_best_acc": 0.0523,
+    "_best_asr": 0.0171,
+    "_n_seeds": 1,
+    "_score": 0.0352,
+    "aggregation.clip_norm": 5.0,
+    "aggregation.method": "fltrust"
+  },
+  "fltrust_mlp_texas100_baseline_backdoor": {
+    "_best_acc": 0.6107,
+    "_best_asr": 1.0,
+    "_n_seeds": 2,
+    "_score": -0.3893,
+    "aggregation.clip_norm": 5.0,
+    "aggregation.method": "fltrust"
+  },
+  "fltrust_textcnn_trec_baseline_backdoor": {
+    "_best_acc": 0.7216,
+    "_best_asr": 0.7692,
+    "_n_seeds": 2,
+    "_score": -0.0476,
+    "aggregation.clip_norm": 5.0,
+    "aggregation.method": "fltrust"
+  },
+  "martfl_cifar100_cnn_backdoor": {
+    "_best_acc": 0.4808,
+    "_best_asr": 0.7006,
+    "_n_seeds": 2,
+    "_score": -0.2198,
+    "aggregation.clip_norm": 5.0,
+    "aggregation.martfl.max_k": 3,
+    "aggregation.method": "martfl"
+  },
+  "martfl_femnist_cnn_backdoor": {
+    "_note": "Copied from cifar100_cnn — no step-3 tuning for FEMNIST yet.",
+    "_best_acc": 0.0,
+    "_best_asr": 0.0,
+    "aggregation.clip_norm": 5.0,
+    "aggregation.martfl.max_k": 3,
+    "aggregation.method": "martfl"
+  },
+  "martfl_mlp_texas100_baseline_backdoor": {
+    "_best_acc": 0.6043,
+    "_best_asr": 1.0,
+    "_n_seeds": 2,
+    "_score": -0.3957,
+    "aggregation.clip_norm": 5.0,
+    "aggregation.martfl.max_k": 3,
+    "aggregation.method": "martfl"
+  },
+  "martfl_textcnn_trec_baseline_backdoor": {
+    "_best_acc": 0.707,
+    "_best_asr": 0.5037,
+    "_n_seeds": 2,
+    "_score": 0.2033,
+    "aggregation.clip_norm": 5.0,
+    "aggregation.martfl.max_k": 3,
+    "aggregation.method": "martfl"
+  },
+  "multi_krum_cifar100_cnn_backdoor": {
+    "_best_acc": 0.1855,
+    "_best_asr": 0.8598,
+    "_n_seeds": 2,
+    "_score": -0.6743,
+    "aggregation.method": "multi_krum",
+    "aggregation.multi_krum.m_selected": 3,
+    "aggregation.multi_krum.num_byzantine": 3
+  },
+  "multi_krum_femnist_cnn_backdoor": {
+    "_note": "Copied from cifar100_cnn — no step-3 tuning for FEMNIST yet.",
+    "_best_acc": 0.0,
+    "_best_asr": 0.0,
+    "aggregation.method": "multi_krum",
+    "aggregation.multi_krum.m_selected": 3,
+    "aggregation.multi_krum.num_byzantine": 3
+  },
+  "multi_krum_mlp_texas100_baseline_backdoor": {
+    "_best_acc": 0.4847,
+    "_best_asr": 0.0039,
+    "_n_seeds": 2,
+    "_score": 0.4809,
+    "aggregation.method": "multi_krum",
+    "aggregation.multi_krum.m_selected": 3,
+    "aggregation.multi_krum.num_byzantine": 3
+  },
+  "multi_krum_textcnn_trec_baseline_backdoor": {
+    "_best_acc": 0.5,
+    "_best_asr": 0.6264,
+    "_n_seeds": 2,
+    "_score": -0.1264,
+    "aggregation.method": "multi_krum",
+    "aggregation.multi_krum.m_selected": 3,
+    "aggregation.multi_krum.num_byzantine": 3
+  },
+  "rflpa_cifar100_cnn_backdoor": {
+    "_best_acc": 0.1244,
+    "_best_asr": 0.7416,
+    "_n_seeds": 2,
+    "_score": -0.6173,
+    "aggregation.clip_norm": 5.0,
+    "aggregation.method": "rflpa",
+    "aggregation.rflpa.element_clip": 1.0
+  },
+  "rflpa_femnist_cnn_backdoor": {
+    "_note": "Copied from cifar100_cnn — no step-3 tuning for FEMNIST yet.",
+    "_best_acc": 0.0,
+    "_best_asr": 0.0,
+    "aggregation.clip_norm": 5.0,
+    "aggregation.method": "rflpa",
+    "aggregation.rflpa.element_clip": 1.0
+  },
+  "rflpa_mlp_texas100_baseline_backdoor": {
+    "_best_acc": 0.2417,
+    "_best_asr": 0.9996,
+    "_n_seeds": 2,
+    "_score": -0.7579,
+    "aggregation.clip_norm": 5.0,
+    "aggregation.method": "rflpa",
+    "aggregation.rflpa.element_clip": 1.0
+  },
+  "rflpa_textcnn_trec_baseline_backdoor": {
+    "_best_acc": 0.7234,
+    "_best_asr": 0.7601,
+    "_n_seeds": 2,
+    "_score": -0.0366,
+    "aggregation.clip_norm": 5.0,
+    "aggregation.method": "rflpa",
+    "aggregation.rflpa.element_clip": 1.0
+  },
+  "skymask_cifar100_cnn_backdoor": {
+    "_best_acc": 0.4592,
+    "_best_asr": 0.8022,
+    "_n_seeds": 2,
+    "_score": -0.3431,
+    "aggregation.clip_norm": 10,
+    "aggregation.method": "skymask",
+    "aggregation.skymask.mask_epochs": 20,
+    "aggregation.skymask.mask_lr": 0.1,
+    "aggregation.skymask.mask_threshold": 0.5
+  },
+  "skymask_femnist_cnn_backdoor": {
+    "_note": "Copied from cifar100_cnn — no step-3 tuning for FEMNIST yet.",
+    "_best_acc": 0.0,
+    "_best_asr": 0.0,
+    "aggregation.clip_norm": 10,
+    "aggregation.method": "skymask",
+    "aggregation.skymask.mask_epochs": 20,
+    "aggregation.skymask.mask_lr": 0.1,
+    "aggregation.skymask.mask_threshold": 0.5
+  },
+  "spmc_cifar100_cnn_backdoor": {
+    "_best_acc": 0.0111,
+    "_best_asr": 0.7519,
+    "_n_seeds": 2,
+    "_score": -0.7408,
+    "aggregation.method": "spmc",
+    "aggregation.spmc.temperature": 0.5
+  },
+  "spmc_femnist_cnn_backdoor": {
+    "_note": "Copied from cifar100_cnn — no step-3 tuning for FEMNIST yet.",
+    "_best_acc": 0.0,
+    "_best_asr": 0.0,
+    "aggregation.method": "spmc",
+    "aggregation.spmc.temperature": 0.5
+  },
+  "spmc_mlp_texas100_baseline_backdoor": {
+    "_best_acc": 0.0268,
+    "_best_asr": 0.3275,
+    "_n_seeds": 2,
+    "_score": -0.3006,
+    "aggregation.method": "spmc",
+    "aggregation.spmc.temperature": 0.5
+  },
+  "spmc_textcnn_trec_baseline_backdoor": {
+    "_best_acc": 0.2527,
+    "_best_asr": 0.0714,
+    "_n_seeds": 2,
+    "_score": 0.1813,
+    "aggregation.method": "spmc",
+    "aggregation.spmc.temperature": 0.5
+  },
+  "trimmed_mean_cifar100_cnn_backdoor": {
+    "_best_acc": 0.4657,
+    "_best_asr": 0.7904,
+    "_n_seeds": 2,
+    "_score": -0.3247,
+    "aggregation.method": "trimmed_mean",
+    "aggregation.trimmed_mean.trim_ratio": 0.1
+  },
+  "trimmed_mean_femnist_cnn_backdoor": {
+    "_note": "Copied from cifar100_cnn — no step-3 tuning for FEMNIST yet.",
+    "_best_acc": 0.0,
+    "_best_asr": 0.0,
+    "aggregation.method": "trimmed_mean",
+    "aggregation.trimmed_mean.trim_ratio": 0.1
+  },
+  "trimmed_mean_mlp_texas100_baseline_backdoor": {
+    "_best_acc": 0.6074,
+    "_best_asr": 1.0,
+    "_n_seeds": 2,
+    "_score": -0.3926,
+    "aggregation.method": "trimmed_mean",
+    "aggregation.trimmed_mean.trim_ratio": 0.1
+  },
+  "trimmed_mean_textcnn_trec_baseline_backdoor": {
+    "_best_acc": 0.7418,
+    "_best_asr": 0.7692,
+    "_n_seeds": 2,
+    "_score": -0.0275,
+    "aggregation.method": "trimmed_mean",
+    "aggregation.trimmed_mean.trim_ratio": 0.1
+  }
+}
