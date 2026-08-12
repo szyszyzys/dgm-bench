@@ -23,15 +23,16 @@ pip install -r requirements.txt
 pip install hdbscan          # optional, only for the FLAME operator
 ```
 
-**Tabular datasets require a one-time prep step.** Texas-100 / Purchase-100 are built from the
-canonical [privacytrustlab](https://github.com/privacytrustlab/datasets) archives into
-`data/tabular/*.npz`:
+**All datasets download and preprocess automatically on first use** — no manual steps.
+Vision (CIFAR-100, FEMNIST) via torchvision / HuggingFace, text (TREC-6) via HuggingFace, and
+tabular (Texas-100, Purchase-100) from the canonical
+[privacytrustlab](https://github.com/privacytrustlab/datasets) `.tgz` archives (fetched, parsed,
+and cached to `data/tabular/*.npz` on first run).
 
-```bash
-python tools/dev-helpers/prep_tabular_data.py     # writes data/tabular/{texas100,purchase100}.npz
-```
-
-Vision/text datasets download automatically on first use.
+> **Note (tabular reproducibility):** the tabular datasets are re-derived from the public source.
+> This yields a consistent, runnable pipeline, but the derived sample ordering may differ from a
+> given prior run, so results for order/partition-sensitive operators (e.g. MartFL, Multi-Krum)
+> on Texas-100 / Purchase-100 are not guaranteed to be bit-identical across data re-derivations.
 
 ---
 

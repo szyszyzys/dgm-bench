@@ -1,7 +1,9 @@
 import hashlib
+import io
 import json
 import logging
 import os
+import tarfile
 from pathlib import Path
 from typing import Dict, Any, Tuple, List, Optional
 from urllib import request
@@ -20,6 +22,38 @@ from src.common_utils.data_utils.image_data_processor import save_data_statistic
 from src.marketplace.utils.gradient_market_utils.gradient_market_configs import AppConfig, TabularDataConfig
 
 logger = logging.getLogger(__name__)
+
+
+def _build_tabular_npz_from_tgz(name: str, tgz_url: str, out_path: str) -> None:
+    """Download the canonical privacytrustlab .tgz for Texas-100 / Purchase-100 and
+    build the ``features`` / ``labels`` .npz the loader expects (one-time, cached).
+
+    The public source only ships .tgz archives, not the .npz the loader reads, so we
+    fetch, parse, and cache. Labels are stored 0-indexed (the source files are
+    1-indexed). Purchase-100: one text file, column 0 = label, columns 1.. = 600
+    binary features. Texas-100: ``texas/100/feats`` (6169 binary features) +
+    ``texas/100/labels``.
+    """
+    logger.info(f"  - Building {name} .npz from {tgz_url} (one-time) ...")
+    with request.urlopen(tgz_url, timeout=300) as resp:
+        raw = resp.read()
+    lname = name.lower()
+    with tarfile.open(fileobj=io.BytesIO(raw), mode="r:gz") as tf:
+        if "texas" in lname:
+            feats = np.loadtxt(tf.extractfile("texas/100/feats"), delimiter=",", dtype=np.float32)
+            labels = np.loadtxt(tf.extractfile("texas/100/labels"), dtype=np.int64)
+        elif "purchase" in lname:
+            arr = np.loadtxt(tf.extractfile("dataset_purchase"), delimiter=",", dtype=np.int64)
+            labels, feats = arr[:, 0], arr[:, 1:].astype(np.float32)
+        else:
+            raise ValueError(f"No .tgz build recipe for tabular dataset '{name}'.")
+    labels = labels.astype(np.int64)
+    if labels.min() >= 1:
+        labels = labels - 1  # store 0-indexed so CrossEntropy targets are in range
+    assert feats.shape[0] == labels.shape[0], (feats.shape, labels.shape)
+    np.savez_compressed(out_path, features=feats, labels=labels)
+    logger.info(f"  - Wrote {out_path}: features {feats.shape}, labels {labels.shape}, "
+                f"{len(np.unique(labels))} classes")
 
 
 def _load_and_prepare_tabular_df(config: Dict[str, Any]) -> Tuple[pd.DataFrame, List[str]]:
@@ -42,8 +76,12 @@ def _load_and_prepare_tabular_df(config: Dict[str, Any]) -> Tuple[pd.DataFrame, 
         data_dir.mkdir(parents=True, exist_ok=True)
         local_filename = str(data_dir / f"{dataset_name.lower()}.npz")
         if not os.path.exists(local_filename):
-            logger.info(f"  - Downloading {dataset_name} dataset from {config['url']}...")
-            request.urlretrieve(config['url'], local_filename)
+            if config.get('tgz_url'):
+                # canonical source ships a .tgz -> download, parse, cache as .npz
+                _build_tabular_npz_from_tgz(dataset_name, config['tgz_url'], local_filename)
+            else:
+                logger.info(f"  - Downloading {dataset_name} dataset from {config['url']}...")
+                request.urlretrieve(config['url'], local_filename)
         data = np.load(local_filename)
         features, labels = data[config['data_key']], data[config['labels_key']]
         if len(labels.shape) > 1 and labels.shape[1] > 1:

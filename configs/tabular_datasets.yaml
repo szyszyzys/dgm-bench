@@ -1,9 +1,15 @@
 # Tabular dataset configurations for the federated gradient marketplace benchmark.
 # Keys must be lowercase (matched via cfg.experiment.dataset_name.lower()).
+#
+# Texas-100 / Purchase-100 are the Shokri et al. membership-inference datasets.
+# The canonical source (privacytrustlab/datasets) ships .tgz archives; on first use
+# the loader downloads `tgz_url`, parses it, and caches data/tabular/<name>.npz.
+# (`url` is kept as a legacy fallback only.)
 
 texas100:
   name: Texas100
   source_type: numpy
+  tgz_url: "https://github.com/privacytrustlab/datasets/raw/master/dataset_texas.tgz"
   url: "https://raw.githubusercontent.com/privacytrustlab/datasets/master/dataset_texas.npz"
   data_key: features
   labels_key: labels
@@ -14,6 +20,7 @@ texas100:
 purchase100:
   name: Purchase100
   source_type: numpy
+  tgz_url: "https://github.com/privacytrustlab/datasets/raw/master/dataset_purchase.tgz"
   url: "https://raw.githubusercontent.com/privacytrustlab/datasets/master/dataset_purchase.npz"
   data_key: features
   labels_key: labels
